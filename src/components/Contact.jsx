@@ -40,14 +40,28 @@ export default function Contact() {
 
   const handleChange = e => setForm(v => ({ ...v, [e.target.name]: e.target.value }))
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-    // Construct a mailto link with the form content
-    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
-    const mailto = `mailto:jalkamtanusree@gmail.com?subject=${encodeURIComponent(form.subject || 'Portfolio Contact')}&body=${encodeURIComponent(body)}`
-    window.location.href = mailto
-    setSent(true)
-    setTimeout(() => setSent(false), 5000)
+    try {
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      })
+      const data = await response.json()
+      if (data.success) {
+        setSent(true)
+        setForm({ name: '', email: '', subject: '', message: '' })
+        setTimeout(() => setSent(false), 5000)
+      } else {
+        alert('Failed to send message: ' + (data.error || 'Unknown error'))
+      }
+    } catch (err) {
+      console.error(err)
+      alert('Error connecting to backend server.')
+    }
   }
 
   return (

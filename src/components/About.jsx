@@ -1,11 +1,11 @@
-import { MapPin, Mail, Phone, GraduationCap, Briefcase, Heart } from './Icons'
+import { MapPin, Mail, Phone, GraduationCap, Heart } from './Icons'
 
 export default function About() {
   return (
     <section className="section about" id="about">
       <div className="container">
         <span className="tag">About Me</span>
-        <h2 className="section-title">Who I Am</h2>
+        <h2 className="section-title">About Me</h2>
         <p className="section-subtitle">
           Passionate about turning data and code into real-world impact
         </p>
@@ -14,20 +14,19 @@ export default function About() {
           {/* Left: Text + Info */}
           <div>
             <div className="about-text">
-              <h3>Computer Science Student & AI Enthusiast</h3>
+              <h3>Computer Science Student & Full Stack/AI Enthusiast</h3>
               <p>
-                I'm Jalkam Tanusree, a B.Tech Computer Science student at GITAM University, Hyderabad.
-                My passion lies at the intersection of artificial intelligence, machine learning, and
-                full-stack web development.
+                I'm Jalkam Tanusree, a B.Tech Computer Science student at Stanley College of Engineering and Technology for Women, Hyderabad.
+                My interest lies in web development (full stack, frontend, backend), AI/ML, and research.
               </p>
               <p>
-                I have hands-on experience building AI-powered applications — from intelligent ROS
-                systems to career intelligence platforms. I thrive on solving complex problems
-                through clean, efficient code and creative engineering.
+                I have hands-on experience building projects in web development and artificial intelligence — from
+                responsive frontend interfaces and robust backend APIs to career intelligence platforms. I thrive on
+                solving problems through clean code and practical engineering.
               </p>
               <p>
                 When I'm not coding, I'm solving problems on LeetCode, contributing to open-source
-                projects, or exploring the latest research in computer vision and NLP.
+                projects, or exploring new technologies.
               </p>
             </div>
 
@@ -59,7 +58,7 @@ export default function About() {
                 <Heart className="info-icon" size={18} />
                 <div>
                   <span className="info-label">Interests</span>
-                  <span className="info-value">AI/ML, Computer Vision, Full Stack, Open Source</span>
+                  <span className="info-value">Web Dev, Full Stack, Frontend, Backend, AI/ML, Research</span>
                 </div>
               </li>
             </ul>
@@ -74,32 +73,16 @@ export default function About() {
 
             <div className="education-card">
               <div className="edu-degree">B.Tech — Computer Science & Engineering</div>
-              <div className="edu-school">GITAM University, Hyderabad</div>
-              <div className="edu-meta">2022 – 2026 · Hyderabad, India</div>
+              <div className="edu-school">Stanley College of Engineering and Technology for Women, Hyderabad</div>
+              <div className="edu-meta">2022 – 2027 · Hyderabad, India</div>
               <span className="edu-grade">CGPA: 9.2</span>
             </div>
 
             <div className="education-card">
               <div className="edu-degree">Intermediate — MPC</div>
-              <div className="edu-school">Sri Chaitanya Junior College</div>
+              <div className="edu-school">Narayana Junior College</div>
               <div className="edu-meta">2020 – 2022 · Hyderabad, India</div>
               <span className="edu-grade">Score: 98%</span>
-            </div>
-
-            <div style={{ marginTop: '32px' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.4rem', fontWeight: 700, marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Briefcase size={22} style={{ color: 'var(--accent-1)' }} />
-                Experience
-              </h3>
-              <div className="education-card">
-                <div className="edu-degree">AI/ML Research Project Lead</div>
-                <div className="edu-school">GITAM University — Academic Project</div>
-                <div className="edu-meta">2024 – Present</div>
-                <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem', marginTop: '10px', lineHeight: '1.7' }}>
-                  Leading development of an AI-ROS integrated multi-agent orchestration system for
-                  intelligent robotic automation and document processing.
-                </p>
-              </div>
             </div>
           </div>
         </div>

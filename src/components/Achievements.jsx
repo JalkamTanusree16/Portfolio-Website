@@ -21,14 +21,8 @@ const achievements = [
   {
     icon: '🎓',
     title: 'B.Tech CSE — High CGPA',
-    desc: 'Maintaining excellent academic performance in Computer Science & Engineering at GITAM University.',
+    desc: 'Maintaining excellent academic performance in Computer Science & Engineering at Stanley College of Engineering and Technology for Women.',
     meta: 'CGPA: 9.2 / 10',
-  },
-  {
-    icon: '📜',
-    title: 'Alonzo Spark Contract Certification',
-    desc: 'Completed specialized blockchain and smart contract certification program.',
-    meta: '2026 · Certification',
   },
   {
     icon: '🧠',

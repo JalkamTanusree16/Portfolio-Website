@@ -3,48 +3,25 @@ const skillCategories = [
     title: 'Programming Languages',
     emoji: '💻',
     color: '#6366f1',
-    skills: [
-      { name: 'Python', pct: 92 },
-      { name: 'JavaScript / TypeScript', pct: 85 },
-      { name: 'Java', pct: 75 },
-      { name: 'C / C++', pct: 70 },
-      { name: 'SQL', pct: 80 },
-    ],
+    skills: ['Python', 'JavaScript', 'TypeScript', 'Java', 'C / C++', 'SQL'],
   },
   {
-    title: 'AI / Machine Learning',
+    title: 'AI & Machine Learning',
     emoji: '🤖',
     color: '#8b5cf6',
-    skills: [
-      { name: 'TensorFlow / Keras', pct: 88 },
-      { name: 'PyTorch', pct: 82 },
-      { name: 'Scikit-learn', pct: 90 },
-      { name: 'OpenCV', pct: 85 },
-      { name: 'LangChain / LangGraph', pct: 78 },
-    ],
+    skills: ['TensorFlow / Keras', 'PyTorch', 'Scikit-learn', 'OpenCV', 'LangChain / LangGraph', 'NLP', 'Computer Vision'],
   },
   {
     title: 'Web Development',
     emoji: '🌐',
     color: '#06b6d4',
-    skills: [
-      { name: 'React / Next.js', pct: 88 },
-      { name: 'Node.js / Express', pct: 80 },
-      { name: 'FastAPI', pct: 85 },
-      { name: 'REST APIs', pct: 90 },
-    ],
+    skills: ['React', 'Next.js', 'Node.js', 'Express', 'FastAPI', 'REST APIs', 'HTML5', 'CSS3', 'Tailwind CSS'],
   },
   {
-    title: 'Tools & Technologies',
+    title: 'Tools & Databases',
     emoji: '🛠️',
     color: '#f59e0b',
-    tags: [
-      'Git', 'GitHub', 'Docker', 'Linux', 'ROS',
-      'MongoDB', 'PostgreSQL', 'SQLite',
-      'Vite', 'Tailwind CSS', 'Firebase',
-      'Jupyter', 'Google Colab', 'VS Code',
-      'Vercel', 'Render',
-    ],
+    skills: ['Git', 'GitHub', 'Docker', 'Linux', 'ROS', 'MongoDB', 'PostgreSQL', 'SQLite', 'Vite', 'Firebase', 'Jupyter', 'Google Colab', 'Vercel', 'Render'],
   },
 ]
 
@@ -55,7 +32,7 @@ export default function Skills() {
         <span className="tag">Technical Skills</span>
         <h2 className="section-title">My Toolkit</h2>
         <p className="section-subtitle">
-          Technologies and frameworks I've worked with across AI, web, and systems
+          Technologies and frameworks I've worked with across web development, AI, and systems
         </p>
 
         <div className="skills-grid">
@@ -71,31 +48,11 @@ export default function Skills() {
                 <span className="skill-cat-title">{cat.title}</span>
               </div>
 
-              {cat.skills ? (
-                cat.skills.map((s, j) => (
-                  <div className="skill-item" key={j}>
-                    <div className="skill-row">
-                      <span className="skill-name">{s.name}</span>
-                      <span className="skill-pct">{s.pct}%</span>
-                    </div>
-                    <div className="skill-bar-bg">
-                      <div
-                        className="skill-bar-fill"
-                        style={{
-                          width: `${s.pct}%`,
-                          animationDelay: `${j * 0.1}s`,
-                        }}
-                      />
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <div className="skills-tags">
-                  {cat.tags.map((t, j) => (
-                    <span className="skill-tag" key={j}>{t}</span>
-                  ))}
-                </div>
-              )}
+              <div className="skills-tags">
+                {cat.skills.map((t, j) => (
+                  <span className="skill-tag" key={j}>{t}</span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
