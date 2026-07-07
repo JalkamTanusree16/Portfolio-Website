@@ -97,6 +97,17 @@ app.get('/api/messages', (req, res) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Backend server running at http://localhost:${PORT}`);
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.log(`\n⚠️  [Port ${PORT} is already in use]`);
+    console.log(`Your backend server is ALREADY running and active on http://localhost:${PORT}!`);
+    console.log(`No action is required. You can go ahead and test your contact form directly. Good to go!\n`);
+    process.exit(0);
+  } else {
+    throw err;
+  }
 });
