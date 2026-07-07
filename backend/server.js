@@ -24,7 +24,42 @@ if (fs.existsSync(MESSAGES_FILE)) {
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('<div style="font-family: sans-serif; text-align: center; padding-top: 50px;"><h1>🚀 Portfolio Backend is Running!</h1><p>Backend API server is successfully active. Frontend requests should be sent to <code>/api/contact</code>.</p></div>');
+  const html = `
+    <div style="font-family: system-ui, sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 20px; color: #333; line-height: 1.6;">
+      <div style="text-align: center; margin-bottom: 40px; border-bottom: 2px solid #eaeaea; padding-bottom: 20px;">
+        <h1 style="color: #6366f1; margin-bottom: 10px;">🚀 Jalkam Tanusree Portfolio Backend</h1>
+        <p style="color: #666; font-size: 1.1rem; margin: 0;">Server is successfully active & receiving contact form messages.</p>
+      </div>
+
+      <h2 style="border-bottom: 1px solid #eee; padding-bottom: 10px; color: #444; margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;">
+        <span>📥 Inbox</span>
+        <span style="background: #6366f1; color: white; font-size: 0.9rem; padding: 2px 10px; border-radius: 20px;">${messages.length} messages</span>
+      </h2>
+
+      ${messages.length === 0 ? `
+        <div style="text-align: center; padding: 40px; border: 2px dashed #ddd; border-radius: 8px; color: #999;">
+          <p style="margin: 0; font-size: 1.1rem;">No messages received yet.</p>
+          <p style="margin: 5px 0 0 0; font-size: 0.9rem;">Fill out the contact form on your portfolio website to send one!</p>
+        </div>
+      ` : `
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          ${[...messages].reverse().map(m => `
+            <div style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background: #fafafa; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
+              <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #888; margin-bottom: 10px; border-bottom: 1px dashed #eee; padding-bottom: 10px;">
+                <span><strong>From:</strong> ${m.name} (<a href="mailto:${m.email}" style="color: #6366f1; text-decoration: none;">${m.email}</a>)</span>
+                <span>${new Date(m.timestamp).toLocaleString()}</span>
+              </div>
+              <div style="margin-bottom: 10px;">
+                <strong>Subject:</strong> ${m.subject}
+              </div>
+              <div style="background: white; border: 1px solid #eaeaea; border-radius: 6px; padding: 15px; margin: 0; white-space: pre-wrap; font-size: 0.95rem; color: #444;">${m.message}</div>
+            </div>
+          `).join('')}
+        </div>
+      `}
+    </div>
+  `;
+  res.send(html);
 });
 
 app.post('/api/contact', (req, res) => {
