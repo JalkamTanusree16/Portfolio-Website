@@ -25,6 +25,10 @@ if (fs.existsSync(MESSAGES_FILE)) {
 }
 
 // Routes
+app.get('/', (req, res) => {
+  res.send('<div style="font-family: sans-serif; text-align: center; padding-top: 50px;"><h1>🚀 Portfolio Backend is Running!</h1><p>Backend API server is successfully active. Frontend requests should be sent to <code>/api/contact</code>.</p></div>');
+});
+
 app.post('/api/contact', (req, res) => {
   const { name, email, subject, message } = req.body;
 
