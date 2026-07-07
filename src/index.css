@@ -348,18 +348,13 @@ body {
   position: absolute;
   inset: 4px;
   border-radius: 50%;
-  background: var(--bg-1);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
-  font-size: 5rem;
-  font-weight: 900;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
   z-index: 1;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  object-fit: cover;
 }
 .avatar-inner-bg {
   position: absolute;

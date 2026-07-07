@@ -1,8 +1,43 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Github, Linkedin, Mail } from './Icons'
-import profileImg from '../assets/profile.jpg'
+import profileImg from '../assets/profile.png'
+
+const titles = [
+  'Frontend Development Enthusiast',
+  'Backend Development Enthusiast',
+  'Full Stack Web Development Enthusiast',
+  'AI/ML Enthusiast',
+  'Research Enthusiast',
+]
 
 export default function Hero() {
+  const [titleIdx, setTitleIdx] = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [typing, setTyping] = useState(true)
+
+  useEffect(() => {
+    const full = titles[titleIdx]
+    let i = displayed.length
+
+    if (typing) {
+      if (i < full.length) {
+        const t = setTimeout(() => setDisplayed(full.slice(0, i + 1)), 60)
+        return () => clearTimeout(t)
+      } else {
+        const t = setTimeout(() => setTyping(false), 2000)
+        return () => clearTimeout(t)
+      }
+    } else {
+      if (i > 0) {
+        const t = setTimeout(() => setDisplayed(full.slice(0, i - 1)), 35)
+        return () => clearTimeout(t)
+      } else {
+        setTitleIdx(v => (v + 1) % titles.length)
+        setTyping(true)
+      }
+    }
+  }, [displayed, typing, titleIdx])
+
   return (
     <section className="hero" id="home">
       <div className="container">
@@ -20,7 +55,8 @@ export default function Hero() {
             </h1>
 
             <p className="hero-title">
-              Full Stack & AI/ML Enthusiast
+              <span className="hero-typing">{displayed}</span>
+              <span style={{ opacity: 0.7 }}>|</span>
             </p>
 
             <p className="hero-desc">
@@ -98,10 +134,6 @@ export default function Hero() {
               <div className="stat-card">
                 <div className="stat-number">8+</div>
                 <div className="stat-label">Projects</div>
-              </div>
-              <div className="stat-card">
-                <div className="stat-number">Full Stack / AI</div>
-                <div className="stat-label">Focus Area</div>
               </div>
               <div className="stat-card">
                 <div className="stat-number">2027</div>

@@ -1,9 +1,27 @@
 const achievements = [
   {
     icon: '🏆',
-    title: 'NHAI Hackathon Participant',
-    desc: 'Participated in National Highways Authority of India hackathon, developing an AI-based road monitoring solution.',
-    meta: '2026',
+    title: 'Algo Showdown 2k25 — Top 10 Merit Student',
+    desc: 'Ranked as one of the top 10 merit students in the Algo Showdown 2k25 coding contest.',
+    meta: '2025 · Coding Contest',
+  },
+  {
+    icon: '💼',
+    title: 'Offline Intern — Alonzo AI',
+    desc: 'Worked as an offline intern at Alonzo AI, gaining valuable industry experience building AI systems.',
+    meta: '2025 · Internship',
+  },
+  {
+    icon: '🚀',
+    title: 'Hackathon Competitor',
+    desc: 'Competed in prestigious hackathons including the ISRO Hackathon, Gen AI Exchange Hackathon, and Winnovx Hackathon.',
+    meta: 'Hackathons',
+  },
+  {
+    icon: '⭐',
+    title: 'Open Source Contributor — GSSoC \'26',
+    desc: 'Contributed to open source repositories during Girlscript Summer of Code (GSSoC) 2026.',
+    meta: '2026 · Open Source',
   },
   {
     icon: '💻',
@@ -29,18 +47,6 @@ const achievements = [
     title: 'Deep Learning Specialization',
     desc: 'Completed advanced deep learning coursework covering CNNs, RNNs, transformers, and deployment strategies.',
     meta: 'Online Certification',
-  },
-  {
-    icon: '🌐',
-    title: 'Full Stack Development Projects',
-    desc: 'Delivered multiple production-grade full stack applications for audit management, safety, and career tools.',
-    meta: '2024 – 2026',
-  },
-  {
-    icon: '🔬',
-    title: 'Medical Imaging Research',
-    desc: 'Conducted research on pulmonary nodule detection using U-Net based deep learning segmentation models.',
-    meta: '2025 · Academic Research',
   },
 ]
 

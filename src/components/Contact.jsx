@@ -115,7 +115,7 @@ export default function Contact() {
           <form className="contact-form" onSubmit={handleSubmit}>
             {sent && (
               <div className="form-success">
-                ✅ Your message has been drafted! Check your email client to send it.
+                ✅ Message sent successfully! I'll get back to you soon.
               </div>
             )}
             <div className="form-group">
