@@ -1,0 +1,147 @@
+import { useState, useEffect } from 'react'
+import { Github, Linkedin, Mail } from './Icons'
+
+const titles = [
+  'AI/ML Engineer',
+  'Full Stack Developer',
+  'Computer Vision Enthusiast',
+  'Open Source Contributor',
+]
+
+export default function Hero() {
+  const [titleIdx, setTitleIdx] = useState(0)
+  const [displayed, setDisplayed] = useState('')
+  const [typing, setTyping] = useState(true)
+
+  useEffect(() => {
+    const full = titles[titleIdx]
+    let i = displayed.length
+
+    if (typing) {
+      if (i < full.length) {
+        const t = setTimeout(() => setDisplayed(full.slice(0, i + 1)), 60)
+        return () => clearTimeout(t)
+      } else {
+        const t = setTimeout(() => setTyping(false), 2000)
+        return () => clearTimeout(t)
+      }
+    } else {
+      if (i > 0) {
+        const t = setTimeout(() => setDisplayed(full.slice(0, i - 1)), 35)
+        return () => clearTimeout(t)
+      } else {
+        setTitleIdx(v => (v + 1) % titles.length)
+        setTyping(true)
+      }
+    }
+  }, [displayed, typing, titleIdx])
+
+  return (
+    <section className="hero" id="home">
+      <div className="container">
+        <div className="hero-grid">
+          {/* Left: Content */}
+          <div>
+            <div className="hero-badge">
+              <span className="hero-badge-dot" />
+              <span>Open to Opportunities</span>
+            </div>
+
+            <h1 className="hero-name">
+              Hi, I'm{' '}
+              <span className="hero-name-gradient">Jalkam Tanusree</span>
+            </h1>
+
+            <p className="hero-title">
+              <span className="hero-typing">{displayed}</span>
+              <span style={{ opacity: 0.7 }}>|</span>
+            </p>
+
+            <p className="hero-desc">
+              Computer Science student at GITAM University, Hyderabad — passionate about building
+              intelligent systems, scalable web applications, and solving complex real-world problems
+              with AI and data science.
+            </p>
+
+            <div className="hero-actions">
+              <a className="btn btn-primary" href="mailto:jalkamtanusree@gmail.com">
+                <Mail size={17} />
+                Get In Touch
+              </a>
+              <a
+                className="btn btn-secondary"
+                href="https://github.com/JalkamTanusree16"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github size={17} />
+                View GitHub
+              </a>
+            </div>
+
+            <div className="hero-socials">
+              <a
+                className="social-link"
+                href="https://github.com/JalkamTanusree16"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                className="social-link"
+                href="https://linkedin.com/in/tanusreejalkam16072005"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a
+                className="social-link"
+                href="mailto:jalkamtanusree@gmail.com"
+                title="Email"
+              >
+                <Mail size={18} />
+              </a>
+              <a
+                className="social-link"
+                href="https://leetcode.com/u/tanusree16/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="LeetCode"
+                style={{ fontSize: '0.85rem', fontWeight: 700 }}
+              >
+                LC
+              </a>
+            </div>
+          </div>
+
+          {/* Right: Avatar + Stats */}
+          <div className="hero-avatar-wrap">
+            <div className="avatar-ring">
+              <div className="avatar-inner-bg" />
+              <div className="avatar-inner">JT</div>
+            </div>
+
+            <div className="hero-stats">
+              <div className="stat-card">
+                <div className="stat-number">3+</div>
+                <div className="stat-label">Projects</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-number">AI</div>
+                <div className="stat-label">Focus Area</div>
+              </div>
+              <div className="stat-card">
+                <div className="stat-number">2025</div>
+                <div className="stat-label">Graduating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
