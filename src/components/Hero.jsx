@@ -2,12 +2,12 @@ import { useState, useEffect } from 'react'
 import { Github, Linkedin, Mail } from './Icons'
 import profileImg from '../assets/profile.png'
 
-const titles = [
-  'Frontend Development Enthusiast',
-  'Backend Development Enthusiast',
-  'Full Stack Web Development Enthusiast',
-  'AI/ML Enthusiast',
-  'Research Enthusiast',
+const areas = [
+  'Frontend Development',
+  'Backend Development',
+  'Full Stack Web Development',
+  'AI / ML',
+  'Research',
 ]
 
 export default function Hero() {
@@ -16,7 +16,7 @@ export default function Hero() {
   const [typing, setTyping] = useState(true)
 
   useEffect(() => {
-    const full = titles[titleIdx]
+    const full = areas[titleIdx]
     let i = displayed.length
 
     if (typing) {
@@ -32,7 +32,7 @@ export default function Hero() {
         const t = setTimeout(() => setDisplayed(full.slice(0, i - 1)), 35)
         return () => clearTimeout(t)
       } else {
-        setTitleIdx(v => (v + 1) % titles.length)
+        setTitleIdx(v => (v + 1) % areas.length)
         setTyping(true)
       }
     }
@@ -57,6 +57,7 @@ export default function Hero() {
             <p className="hero-title">
               <span className="hero-typing">{displayed}</span>
               <span style={{ opacity: 0.7 }}>|</span>
+              {' '}<span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>Enthusiast</span>
             </p>
 
             <p className="hero-desc">
@@ -67,15 +68,6 @@ export default function Hero() {
               <a className="btn btn-primary" href="#contact">
                 <Mail size={17} />
                 Get In Touch
-              </a>
-              <a
-                className="btn btn-secondary"
-                href="https://github.com/JalkamTanusree16"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github size={17} />
-                View GitHub
               </a>
             </div>
 
@@ -126,7 +118,7 @@ export default function Hero() {
                 src={profileImg}
                 alt="Jalkam Tanusree"
                 className="avatar-inner"
-                style={{ borderRadius: '50%', width: '100%', height: '100%', objectFit: 'cover', border: '4px solid var(--bg-1)', zIndex: 1 }}
+                style={{ borderRadius: '50%', width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center center', border: '4px solid var(--bg-1)', zIndex: 1 }}
               />
             </div>
 

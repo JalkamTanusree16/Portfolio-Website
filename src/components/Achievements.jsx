@@ -1,5 +1,11 @@
 const achievements = [
   {
+    icon: '🥇',
+    title: 'Top 1 — Attention Coding Test',
+    desc: 'Ranked #1 student in the Attention Coding Test, demonstrating exceptional problem-solving and algorithmic skills.',
+    meta: 'Coding Contest · Top Rank',
+  },
+  {
     icon: '🏆',
     title: 'Algo Showdown 2k25 — Top 10 Merit Student',
     desc: 'Ranked as one of the top 10 merit students in the Algo Showdown 2k25 coding contest.',

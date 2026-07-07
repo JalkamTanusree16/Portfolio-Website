@@ -4,7 +4,6 @@ export default function About() {
   return (
     <section className="section about" id="about">
       <div className="container">
-        <span className="tag">About Me</span>
         <h2 className="section-title">About Me</h2>
         <p className="section-subtitle">
           Passionate about turning data and code into real-world impact
@@ -58,7 +57,7 @@ export default function About() {
                 <Heart className="info-icon" size={18} />
                 <div>
                   <span className="info-label">Interests</span>
-                  <span className="info-value">Web Dev, Full Stack, Frontend, Backend, AI/ML, Research</span>
+                  <span className="info-value">Web Dev, Full Stack, Frontend, Backend, AI/ML, Research, Software Development, Deep Learning, Natural Language Processing (NLP), Data Science</span>
                 </div>
               </li>
             </ul>
@@ -83,6 +82,13 @@ export default function About() {
               <div className="edu-school">Narayana Junior College</div>
               <div className="edu-meta">2020 – 2022 · Hyderabad, India</div>
               <span className="edu-grade">Score: 98%</span>
+            </div>
+
+            <div className="education-card">
+              <div className="edu-degree">Schooling — SSC (10th Grade)</div>
+              <div className="edu-school">Rosary Convent High School</div>
+              <div className="edu-meta">Hyderabad, India</div>
+              <span className="edu-grade">GPA: 10 / 10</span>
             </div>
           </div>
         </div>
