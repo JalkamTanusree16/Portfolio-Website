@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "concurrently \"vite\" \"node backend/server.js\"",
     "start": "concurrently \"vite\" \"node backend/server.js\"",
+    "kill": "node kill-port.js",
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview"
