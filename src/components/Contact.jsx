@@ -37,11 +37,13 @@ const contactItems = [
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
   const [sent, setSent] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const handleChange = e => setForm(v => ({ ...v, [e.target.name]: e.target.value }))
 
   const handleSubmit = async e => {
     e.preventDefault()
+    setLoading(true)
     try {
       const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
@@ -54,18 +56,38 @@ export default function Contact() {
       if (data.success) {
         setSent(true)
         setForm({ name: '', email: '', subject: '', message: '' })
-        setTimeout(() => setSent(false), 5000)
+        setTimeout(() => setSent(false), 4000)
       } else {
         alert('Failed to send message: ' + (data.error || 'Unknown error'))
       }
     } catch (err) {
       console.error(err)
       alert('Error connecting to backend server.')
+    } finally {
+      setLoading(false)
     }
   }
 
   return (
-    <section className="section contact" id="contact">
+    <>
+      {/* Toast Notification */}
+      {sent && (
+        <div className="toast-popup">
+          <div className="toast-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="22" height="22">
+              <circle cx="12" cy="12" r="10" fill="#22c55e" stroke="#22c55e" />
+              <polyline points="8 12 11 15 16 9" stroke="white" strokeWidth="2.5" />
+            </svg>
+          </div>
+          <div className="toast-body">
+            <div className="toast-title">Message Sent!</div>
+            <div className="toast-sub">I'll get back to you soon 🙌</div>
+          </div>
+          <button className="toast-close" onClick={() => setSent(false)}>✕</button>
+        </div>
+      )}
+
+      <section className="section contact" id="contact">
       <div className="container">
         <span className="tag">Contact</span>
         <h2 className="section-title">Let's Connect</h2>
@@ -113,11 +135,7 @@ export default function Contact() {
 
           {/* Right: Form */}
           <form className="contact-form" onSubmit={handleSubmit}>
-            {sent && (
-              <div className="form-success">
-                ✅ Message sent successfully! I'll get back to you soon.
-              </div>
-            )}
+
             <div className="form-group">
               <label className="form-label" htmlFor="contact-name">Your Name</label>
               <input
@@ -168,13 +186,23 @@ export default function Contact() {
                 required
               />
             </div>
-            <button type="submit" className="form-submit">
-              <Send size={17} />
-              Send Message
+            <button type="submit" className="form-submit" disabled={loading}>
+              {loading ? (
+                <>
+                  <span className="btn-spinner" />
+                  Sending…
+                </>
+              ) : (
+                <>
+                  <Send size={17} />
+                  Send Message
+                </>
+              )}
             </button>
           </form>
         </div>
       </div>
     </section>
+    </>
   )
 }

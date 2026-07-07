@@ -1,8 +1,8 @@
 const achievements = [
   {
     icon: '🥇',
-    title: 'Top 1 — Attention Coding Test',
-    desc: 'Ranked #1 student in the Attention Coding Test, demonstrating exceptional problem-solving and algorithmic skills.',
+    title: 'Top 1 — Talentio Coding Test',
+    desc: 'Ranked #1 student in the Talentio Coding Test, demonstrating exceptional problem-solving and algorithmic skills.',
     meta: 'Coding Contest · Top Rank',
   },
   {
