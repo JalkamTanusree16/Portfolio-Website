@@ -32,6 +32,12 @@ const contactItems = [
     value: 'tanusreejalkam16072005',
     href: 'https://linkedin.com/in/tanusreejalkam16072005',
   },
+  {
+    icon: <span style={{ fontWeight: 'bold', fontSize: '0.85rem' }}>HR</span>,
+    label: 'HackerRank',
+    value: 'h160623740016',
+    href: 'https://www.hackerrank.com/profile/h160623740016',
+  },
 ]
 
 export default function Contact() {

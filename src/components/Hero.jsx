@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react'
-import { Github, Linkedin, Mail } from './Icons'
+import { Github, Linkedin, Mail, FileText, Download } from './Icons'
 import profileImg from '../assets/profile.png'
 
 const areas = [
-  'Frontend Development',
-  'Backend Development',
-  'Full Stack Web Development',
-  'AI / ML',
-  'Research',
+  'Frontend Developer',
+  'Backend Developer',
+  'Full Stack Web Developer',
+  'AI / ML Enthusiast',
+  'Researcher',
 ]
 
 export default function Hero() {
@@ -56,8 +56,7 @@ export default function Hero() {
 
             <p className="hero-title">
               <span className="hero-typing">{displayed}</span>
-              <span style={{ opacity: 0.7 }}>|</span>
-              {' '}<span style={{ color: 'var(--text-secondary)', fontWeight: 400 }}>Enthusiast</span>
+              <span className="typing-cursor">|</span>
             </p>
 
             <p className="hero-desc">
@@ -68,6 +67,14 @@ export default function Hero() {
               <a className="btn btn-primary" href="#contact">
                 <Mail size={17} />
                 Get In Touch
+              </a>
+              <a className="btn btn-secondary" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <FileText size={17} />
+                View Resume
+              </a>
+              <a className="btn btn-secondary" href="/resume.pdf" download="Jalkam_Tanusree_Resume.pdf">
+                <Download size={17} />
+                Download Resume
               </a>
             </div>
 
@@ -106,6 +113,16 @@ export default function Hero() {
                 style={{ fontSize: '0.85rem', fontWeight: 700 }}
               >
                 LC
+              </a>
+              <a
+                className="social-link"
+                href="https://www.hackerrank.com/profile/h160623740016"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="HackerRank"
+                style={{ fontSize: '0.85rem', fontWeight: 700 }}
+              >
+                HR
               </a>
             </div>
           </div>

@@ -27,6 +27,16 @@ export default function Footer() {
           </a>
           <a
             className="social-link"
+            href="https://www.hackerrank.com/profile/h160623740016"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="HackerRank"
+            style={{ fontSize: '0.8rem', fontWeight: 'bold' }}
+          >
+            HR
+          </a>
+          <a
+            className="social-link"
             href="mailto:jalkamtanusree@gmail.com"
             title="Email"
           >

@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react'
-import { X } from './Icons'
+import { X, Sun, Moon } from './Icons'
 
 const navItems = [
   { id: 'home', label: 'Home', icon: null },
   { id: 'about', label: 'About', icon: null },
   { id: 'skills', label: 'Skills', icon: null },
   { id: 'projects', label: 'Projects', icon: null },
+  { id: 'certifications', label: 'Certifications', icon: null },
   { id: 'achievements', label: 'Achievements', icon: null },
 ]
 
-export default function Navbar({ activeSection }) {
+export default function Navbar({ activeSection, theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -28,7 +29,9 @@ export default function Navbar({ activeSection }) {
     <nav className={`navbar${scrolled ? ' scrolled' : ''}`}>
       <div className="container navbar-inner">
         <a className="navbar-logo" onClick={() => scrollTo('home')} style={{ cursor: 'pointer' }}>
-          JT
+          <span className="logo-bracket">&lt;</span>
+          <span className="logo-text">JT</span>
+          <span className="logo-bracket"> /&gt;</span>
         </a>
 
         <ul className={`navbar-links${menuOpen ? ' open' : ''}`}>
@@ -50,10 +53,16 @@ export default function Navbar({ activeSection }) {
           </li>
         </ul>
 
-        <div className="hamburger" onClick={() => setMenuOpen(v => !v)} aria-label="Toggle menu">
-          {menuOpen ? <X size={20} /> : <>
-            <span /><span /><span />
-          </>}
+        <div className="navbar-actions" style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+          <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle theme">
+            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
+
+          <div className="hamburger" onClick={() => setMenuOpen(v => !v)} aria-label="Toggle menu">
+            {menuOpen ? <X size={20} /> : <>
+              <span /><span /><span />
+            </>}
+          </div>
         </div>
       </div>
     </nav>
